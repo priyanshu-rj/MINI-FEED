@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Databases</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <ul>
+        <% databases.forEach(database => { %>
+            <div class="container profile">
+                <a href="/" class="button">Go back</a>
+                <div class="row">
+                    <div class="col-5">
+                        <div class="profile-photo">
+                            <% if (database.data) { %>
+                                <img src="data:<%= database.contentType %>;base64,<%= database.data.toString('base64') %>" alt="Image">
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <div class="profile-info">
+                            <div class="profile-preword"><span>Hello</span></div>
+                            <h1 class="profile-title"><span>I'm</span> <%= database.name %></h1>
+                            <h2 class="profile-position"><%= database.skill %></h2>
+                        </div>
+                        <ul class="profile-list">
+                            <li class="clearfix">
+                                <strong class="title">Age</strong> 
+                                <span class="cont"><%= database.age %></span>
+                            </li>
+                            <li class="clearfix">
+                                <strong class="title">Address</strong> 
+                                <span class="cont"><%= database.address %></span>
+                            </li>
+                            <li class="clearfix">
+                                <strong class="title">E-mail</strong> 
+                                <span class="cont">
+                                    <a href="mailto:jonsmith@jbs.com"><%= database.email %></a>
+                                </span>
+                            </li>
+                            <li class="clearfix">
+                                <strong class="title">Phone</strong> 
+                                <span class="cont">
+                                    <a href="tel:+12562548456"><%= database.phn %></a>
+                                </span>
+                            </li>
+                            <li class="clearfix">
+                                <strong class="title">Gender</strong>
+                                <span class="cont"><%= database.gender %></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </ul>
+</body>
+</html>
